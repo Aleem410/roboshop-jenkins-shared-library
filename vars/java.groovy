@@ -1,27 +1,20 @@
 def call() {
-node {
-
-    stage('compile'){
-        steps {
-            echo 'compile'
-        }
-    }
-    stage('code quality'){
-        steps {
+    node {
+        stage('code quality'){
             echo 'code quality'
         }
-    }
+        stage('code quality'){
+            echo 'code quality'
+        }
 
-    stage('Test cases'){
-        steps {
+
+        stage('Test cases'){
             echo 'Test cases'
         }
-    }
 
-    stage('Publish release'){
-        steps {
+        stage('Publish release'){
             echo 'Publish release'
         }
+
     }
-  }
 }
