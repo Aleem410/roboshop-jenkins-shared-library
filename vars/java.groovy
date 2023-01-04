@@ -1,7 +1,7 @@
 def call() {
     node {
-        stage('code quality'){
-            echo 'code quality'
+        stage('compile'){
+            echo 'compile'
         }
         stage('code quality'){
             echo 'code quality'
