@@ -3,7 +3,17 @@ def call() {
         agent any
 
         stages {
-            common()
+            stage('code quality'){
+                steps {
+                    echo 'code quality'
+                }
+            }
+
+            stage('Test cases'){
+                steps {
+                    echo 'Test cases'
+                }
+            }
 
             stage('Publish release'){
                 steps {
