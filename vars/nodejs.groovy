@@ -3,6 +3,7 @@ def call() {
         agent any
 
         stages {
+
             stage('code quality'){
                 steps {
                     echo 'code quality'
@@ -23,4 +24,5 @@ def call() {
         }
     }
 }
+
 
