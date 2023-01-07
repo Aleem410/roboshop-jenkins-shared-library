@@ -2,6 +2,7 @@ def call() {
     node {
 
         stage('Checkout SCM') {
+            cleanWs()
             git branch: 'main', url: "${env.REPO_URL}"
         }
         stage('code quality') {
