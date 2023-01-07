@@ -1,9 +1,7 @@
 def call() {
     node {
-        stage('Checkout SCM') {
-            cleanWs()
-            git branch: 'main', url: "${env.REPO_URL}"
-        }
+        common.checkout()
+
         stage('code quality'){
             echo 'code quality'
         }
