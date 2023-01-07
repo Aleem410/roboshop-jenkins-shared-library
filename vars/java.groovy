@@ -7,7 +7,6 @@ def call() {
             echo 'code quality'
         }
 
-
         stage('Test cases'){
             echo 'Test cases'
         }
