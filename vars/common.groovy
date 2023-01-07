@@ -18,7 +18,7 @@ def compile() {
 
 def codeQuality() {
     stage('code quality'){
-       sh 'sonar-scanner -Dsonar.login=admin -Dsonar.password=Cisco@410 -Dsonar.host.url=http://http://3.231.31.130/:9000'
+       sh 'sonar-scanner -Dsonar.login=admin -Dsonar.password=Cisco@410 -D sonar.host.url=http://http://3.231.31.130/:9000'
     }
 }
 
