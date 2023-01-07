@@ -2,21 +2,9 @@ def call() {
     node {
 
         common.checkout()
-
-        stage('compile'){
-            echo 'compile'
-        }
-        stage('code quality'){
-            echo 'code quality'
-        }
-
-        stage('Test cases'){
-            echo 'Test cases'
-        }
-
-        stage('Publish release'){
-            echo 'Publish release'
-        }
+        common.compile()
+        common.codeQuality()
+        common.release()
 
     }
 }
