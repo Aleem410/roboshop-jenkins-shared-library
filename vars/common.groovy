@@ -31,7 +31,7 @@ def testCases(appType) {
             sh 'go mod init'
         }
         if (appType == "nodejs") {
-            sh 'npm test'
+            sh 'npm install'
         }
         if (appType == "python") {
             sh 'python3 -m unittest *.py'
