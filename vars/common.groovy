@@ -22,7 +22,7 @@ def codeQuality() {
     }
 }
 
-def testCases() {
+def testCases(appType) {
     stage('Unit Tests') {
         if (appType == "java") {
             sh 'mvn test'
