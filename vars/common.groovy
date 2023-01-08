@@ -5,7 +5,7 @@ def checkout() {
     }
 }
 
-def compile() {
+def compile(appType) {
     stage('compile code') {
         if (appType == "java") {
             sh 'mvn clean compile'
