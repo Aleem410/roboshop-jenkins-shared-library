@@ -22,6 +22,23 @@ def codeQuality() {
     }
 }
 
+def testCases() {
+    stage('Unit Tests') {
+        if (appType == "java") {
+            sh 'mvn test'
+        }
+        if (appType == "golang") {
+            sh 'go mod init'
+        }
+        if (appType == "nodejs") {
+            sh 'npm test'
+        }
+        if (appType == "python") {
+            sh 'python3 -m unittest *.py'
+        }
+    }
+}
+
 def release() {
     stage('Publish A release'){
         echo 'Publish A release'
