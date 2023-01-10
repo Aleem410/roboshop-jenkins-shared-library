@@ -18,7 +18,7 @@ def compile(appType) {
 
 def codeQuality() {
     stage('code quality'){
-        sh "sonar-scanner -Dsonar.qualitygate.wait=true -Dsonar.login=admin -Dsonar.password=Cisco@410 -Dsonar.host.url=http:44.211.187.98:9000 -Dsonar.projectKey=${env.COMPONENT} ${SONAR_OPTS}"
+        sh "sonar-scanner -Dsonar.qualitygate.wait=true -Dsonar.login=admin -Dsonar.password=Cisco@410 -Dsonar.host.url=http:3.236.183.141:9000 -Dsonar.projectKey=${env.COMPONENT} ${SONAR_OPTS}"
     }
 }
 
