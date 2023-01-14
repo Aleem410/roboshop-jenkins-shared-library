@@ -8,7 +8,7 @@ def call() {
         common.compile(java)
         common.codeQuality()
         common.testCases(java)
-        if(env.TAG_NAME ==~ "") {
+        if(env.TAG_NAME ==~ ".*") {
         common.release()
         }
 
