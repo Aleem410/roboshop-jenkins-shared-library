@@ -13,14 +13,14 @@ def call() {
           stage('terraform init') {
                steps {
                    sh '''
-                   terraform init -backend-config=env/${COMPONENT}-backend.tfvars
+                   terraform init -backend-config=env/${ENVIRONMENT}-backend.tfvars
                    '''
                  }
              }
           stage('terraform plan') {
                steps {
                    sh '''
-                   terraform plan -var-file=env/${COMPONENT}.tfvars
+                   terraform plan -var-file=env/${ENVIRONMENT}.tfvars
                    '''
                }
            }
