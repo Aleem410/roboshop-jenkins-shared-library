@@ -17,9 +17,7 @@ def call() {
                    '''
                  }
              }
-         }
-       stages {
-           stage('terraform plan') {
+          stage('terraform plan') {
                steps {
                    sh '''
                    terraform plan -var-file=env/${COMPONENT}.tfvars
