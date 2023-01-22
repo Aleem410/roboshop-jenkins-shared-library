@@ -25,11 +25,11 @@ def call() {
                }
            }
            stage('terraform Apply') {
+               input {
+                   message "Apply?"
+                   ok "Yes"
+               }
                steps {
-                   input {
-                       message "Apply?"
-                       ok "Yes"
-                   }
                    sh '''
                    terraform apply -auto-approve -var-file=env/${ENVIRONMENT}.tfvars
                    '''
