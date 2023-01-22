@@ -12,7 +12,7 @@ def call() {
        stages {
           stage('terraform init') {
                steps {
-                   addShortText(text: "Env : ${ENVIRONMENT} | Action: ${ACTION}", background: <background>, border: <border>, borderColor: <borderColor>, color: <color>, link: <link>)
+                   addShortText text: "Env : ${ENVIRONMENT} | Action: ${ACTION}"
                    sh '''
                    terraform init -backend-config=env/${ENVIRONMENT}-backend.tfvars
                    '''
