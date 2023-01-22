@@ -3,11 +3,11 @@ def call() {
 
        properties[
                parameters([
-//                       [$class     : 'ChoiceParameterDefinition',
-//                        choices    : '\ndev\nprod\n',
-//                        name       : 'ENVIRONMENT',
-//                        description: "Choose Environment"
-//                       ],
+                       [$class     : 'ChoiceParameterDefinition',
+                        choices    : '\ndev\nprod\n',
+                        name       : 'ENVIRONMENT',
+                        description: "Choose Environment"
+                       ],
                        [$class     : 'ChoiceParameterDefinition',
                         choices    : '\napply\ndestroy\n',
                         name       : 'ACTION',
