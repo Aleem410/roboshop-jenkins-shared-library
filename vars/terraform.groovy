@@ -18,11 +18,11 @@ def call() {
 
        common.checkout()
 
-       if ( !ENVIRONMENT ) {
+       if (!ENVIRONMENT) {
          env.ENVIRONMENT = "${env.ENVIRONMENT_DEFAULT}"
        }
-       if ( !ACTION ) {
-           env.ACTION = "${env.ACTION_DEFAULT}"
+       if (!ACTION) {
+         env.ACTION = "${env.ACTION_DEFAULT}"
        }
        stage('terraform init') {
 //           addShortText background: '#FFFF00', borderColor: '#FFFF00', color: '', link: '', text: "Env : ${ENVIRONMENT} | Action : ${ACTION}"
