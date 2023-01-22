@@ -1,41 +1,36 @@
 def call() {
-   pipeline {
-       agent any
-
-//       options {
-//           ansiColor('xterm')
-//       }
-       parameters {
-           choice(name: 'ENVIRONMENT', choices: ['', 'dev', 'prod'], description: 'Pick ENVIRONMENT')
-           choice(name: 'ACTION', choices: ['', 'apply', 'destroy'], description: 'Pick TERRAFORM ACTION')
-       }
-       stages {
-          stage('terraform init') {
-               steps {
-                   sh '''
-                   terraform init -backend-config=env/${ENVIRONMENT}-backend.tfvars
-                   '''
-                 }
+   node {
+       properties([
+               parameters([
+                       [$class: 'ChoiceParameterDefinition',
+                        choices: '\ndev\nprod\n',
+                        name: 'ENVIRONMENT',
+                        description: "choose Environment"
+                       ],
+               ]),
+               parameters([
+                       [$class: 'ChoiceParameterDefinition',
+                        choices: '\napply\ndestroy\n',
+                        name: 'ACTION',
+                        description: "choose Action"
+                       ],
+               ]),
+       ])
+       stage('terraform init') {
+           sh '''
+              terraform init -backend-config=env/${ENVIRONMENT}-backend.tfvars
+           '''
              }
           stage('terraform plan') {
-               steps {
-                   sh '''
-                   terraform plan -var-file=env/${ENVIRONMENT}.tfvars
-                   '''
-               }
+           sh '''
+              terraform plan -var-file=env/${ENVIRONMENT}.tfvars
+           '''
            }
            stage('terraform Apply') {
-               input {
-                   message "Apply?"
-                   ok "Yes"
-               }
-               steps {
-                   sh '''
-                   terraform apply -auto-approve -var-file=env/${ENVIRONMENT}.tfvars
-                   '''
-               }
+           sh '''
+              terraform apply -auto-approve -var-file=env/${ENVIRONMENT}.tfvars
+           '''
            }
-       }
 
    }
 }
