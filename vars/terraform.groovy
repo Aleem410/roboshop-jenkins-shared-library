@@ -18,10 +18,10 @@ def call() {
 
        common.checkout()
 
-       if (! ENVIRONMENT) {
+       if ( ! ENVIRONMENT ) {
          env.ENVIRONMENT = "${ENVIRONMENT_DEFAULT}"
        }
-       if (! ACTION) {
+       if ( ! ACTION ) {
            env.ACTION = "${ACTION_DEFAULT}"
        }
        stage('terraform init') {
