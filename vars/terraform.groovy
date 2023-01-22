@@ -31,7 +31,7 @@ def call() {
            '''
        }
        stage('terraform plan') {
-           input message: 'Apply ?', ok: 'yes'
+//           input message: 'Apply ?', ok: 'yes'
            sh '''
               terraform plan -var-file=env/${ENVIRONMENT}.tfvars
            '''
