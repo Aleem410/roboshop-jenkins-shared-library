@@ -12,7 +12,7 @@ def call() {
            [$class: 'ChoiceParameterDefinition',
            choices: '\napply\ndestroy\n',
            name: 'ACTION',
-           description: "choose Action"
+           description: "choose Environment"
            ],
          ]),
        ])
