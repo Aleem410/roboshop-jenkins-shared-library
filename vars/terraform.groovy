@@ -30,7 +30,8 @@ def call() {
               terraform init -backend-config=env/${ENVIRONMENT}-backend.tfvars
            '''
        }
-       stage('terraform plan') {
+       stage('terraform plan')
+           input message: 'Apply ?', ok: 'yes'
            sh '''
               terraform plan -var-file=env/${ENVIRONMENT}.tfvars
            '''
