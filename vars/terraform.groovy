@@ -1,7 +1,7 @@
 def call() {
    node {
 
-       properties[
+       properties([
                parameters([
                        [$class     : 'ChoiceParameterDefinition',
                         choices    : '\ndev\nprod\n',
@@ -14,7 +14,7 @@ def call() {
                         description: "Choose Action"
                        ],
                ]),
-       ]
+       ])
 
        common.checkout()
 
