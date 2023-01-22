@@ -2,23 +2,24 @@ def call() {
    node {
 
        properties([
-         parameters([
-         [$class: 'ChoiceParameterDefinition',
-           choices: '\ndev\nprod\n',
-           name: 'ENVIRONMENT',
-           description: "choose Environment"
-         ],
-         ]),
-         parameters([
-         [$class: 'ChoiceParameterDefinition',
-           choices: '\napply\ndestroy\n',
-           name: 'ACTION',
-           description: "choose Action"
-         ],
-         ]),
+               parameters([
+                       [$class     : 'ChoiceParameterDefinition',
+                        choices    : '\ndev\nprod\n',
+                        name       : 'ENVIRONMENT',
+                        description: "Choose Environment"
+                       ],
+                       [$class     : 'ChoiceParameterDefinition',
+                        choices    : '\napply\ndestroy\n',
+                        name       : 'ACTION',
+                        description: "Choose Action"
+                       ],
+               ]),
        ])
+
+       common.checkout()
+
        stage('terraform init') {
-           sh '''
+           sh '''   
               terraform init -backend-config=env/${ENVIRONMENT}-backend.tfvars
            '''
        }
